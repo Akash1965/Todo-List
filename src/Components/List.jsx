@@ -31,7 +31,7 @@ export const List = () => {
               listTitle.slice(1).map((item, index) => {
                 return <li className='flex justify-around gap-y-2' key={index}>
                 <div className='font-semibold'>{item.taskNo}</div>
-                <div className='font-semibold text-red-700'>{item.taskTitle}</div>
+                <div className='font-semibold text-red-700 cursor-pointer'>{item.taskTitle}</div>
                 <div className='bg-red-500 font-semibold text-white px-3 rounded-xl cursor-pointer hover:bg-red-700' onClick={() => deleteTask(index+1)}>Delete</div>
                 </li>
                 })
