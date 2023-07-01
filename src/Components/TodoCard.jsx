@@ -1,14 +1,12 @@
-import React, { useContext, useState} from 'react'
-import {TaskContext, TaskStateContext, DescriptionContext, DescriptionStateContext, ListContext, ListStateContext} from '../App'
+import React, { useContext } from 'react'
+import {TaskContext, TaskStateContext, DescriptionContext, DescriptionStateContext, ListStateContext} from '../App'
 
 export const TodoCard = () => {
     const title = useContext(TaskContext)
     const setTitle = useContext(TaskStateContext)
     const description = useContext(DescriptionContext)
     const setDescription = useContext(DescriptionStateContext)
-    const task = useContext(ListContext)
     const setTask = useContext(ListStateContext)
-    const [count, setCount] = useState(1)
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value)
@@ -17,12 +15,10 @@ export const TodoCard = () => {
         setDescription(e.target.value)
     }
     const handleAdd = () => {
-        // setCount((prevCount) => prevCount + 1)
         setTask((prevTask) => [...prevTask,{
             taskNo: prevTask.length,
             taskTitle: title,
         }])
-        // console.log(task)
         setTitle('')
     }
     const handleDelete = () => {
