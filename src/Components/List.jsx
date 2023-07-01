@@ -1,24 +1,27 @@
-import React, { useContext, useEffect, useState} from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ListContext, ListStateContext} from '../App'
 
 export const List = () => {
   const listTitle = useContext(ListContext)
   const setListTitle = useContext(ListStateContext)
-  const [task, setTask] = useState([])
+
+  // useEffect(() => {
+  //   console.log(listTitle)
+  // }, [listTitle])
 
   const deleteTask = (count) => {
     console.log(listTitle)
     console.log(count)
     setListTitle(listTitle.splice(count, 1))
-    setListTitle(listTitle.map((item, index) => {
-      item.taskNo = index
-      return listTitle
-    }))
+    const todo = listTitle.map((item, index) => {
+      if(index >= count) {
+        return {...item,
+        taskNo: index}
+      }
+      return item
+    })
+    setListTitle(todo)
   }
-
-  useEffect(() => {
-    setTask(...listTitle)
-  }, [listTitle])
 
   return (
     <div className='bg-gray-200 text-black px-4 py-6 my-10 w-96'>
