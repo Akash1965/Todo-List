@@ -8,7 +8,7 @@ export const TodoCard = () => {
     const setDescription = useContext(DescriptionStateContext)
     const task = useContext(ListContext)
     const setTask = useContext(ListStateContext)
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(1)
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value)
@@ -17,15 +17,17 @@ export const TodoCard = () => {
         setDescription(e.target.value)
     }
     const handleAdd = () => {
-        setCount(prevCount => prevCount + 1)
+        // setCount((prevCount) => prevCount + 1)
         setTask((prevTask) => [...prevTask,{
-            taskNo: count,
+            taskNo: prevTask.length,
             taskTitle: title,
         }])
+        // console.log(task)
         setTitle('')
     }
     const handleDelete = () => {
-        // console.log(task)
+        setTitle('')
+        setDescription('')
     }
 
   return (

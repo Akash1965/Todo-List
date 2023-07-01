@@ -15,7 +15,7 @@ function App() {
   const [description, setDescription] = useState('')
   const [task, setTask] = useState([{
     taskNo: 0,
-    taskTitle: '',
+    title: '',
   }])
   return (
     <div className='flex flex-col'>
