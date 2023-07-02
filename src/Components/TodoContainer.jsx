@@ -4,7 +4,7 @@ import { TodoCard } from './TodoCard'
 export const TodoContainer = () => {
   return (
     <div>
-        <TodoCard/>
+        <TodoCard />
     </div>
   )
 }
