@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { List } from './Components/List'
 import { TodoContainer } from './Components/TodoContainer'
 import { Route, Routes } from 'react-router-dom'
+import { TodoTask } from './Components/TodoTask'
 
 export const TaskContext = React.createContext()
 export const TaskStateContext = React.createContext()
@@ -29,7 +30,7 @@ function App() {
               <ListStateContext.Provider value={setTask}>
                 <Routes>
                   <Route path='/' element={<TodoContainer />}/>
-                  <Route path='/:id' element={<TodoContainer />} />
+                  <Route path='/:id' element={<TodoTask/>} />
                 </Routes>
                 <List/>
               </ListStateContext.Provider>

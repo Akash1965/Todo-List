@@ -15,17 +15,33 @@ export const TodoCard = () => {
         setDescription(e.target.value)
     }
     const handleAdd = () => {
-        setTask((prevTask) => [...prevTask,{
-            taskNo: prevTask.length,
-            taskDesc: description,
-            taskTitle: title,
-        }])
-        setTitle('')
-        setDescription('')
+        if(title != '' && description != ''){
+            setTask((prevTask) => [...prevTask,{
+                taskNo: prevTask.length,
+                taskDesc: description,
+                taskTitle: title,
+            }])
+            setTitle('')
+            setDescription('')
+        }
+        else{
+            if(title == ''){
+                setTitle('Enter the title')
+            }
+            if(description == ''){
+                setDescription('Enter the description')
+            }
+        }
     }
     const handleDelete = () => {
-        setTitle('')
-        setDescription('')
+        if(title == '' && description == ''){
+            setTitle('Title is already empty')
+            setDescription('Description is already empty')
+        }
+        else{
+            setTitle('')
+            setDescription('')
+        }
     }
 
   return (
