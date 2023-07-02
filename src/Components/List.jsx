@@ -1,14 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { ListContext, ListStateContext} from '../App'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const List = () => {
   const listTitle = useContext(ListContext)
   const setListTitle = useContext(ListStateContext)
-
-  // useEffect(() => {
-  //   console.log(listTitle)
-  // }, [listTitle])
 
   const deleteTask = (count) => {
     console.log(listTitle)
