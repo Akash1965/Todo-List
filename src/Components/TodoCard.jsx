@@ -17,9 +17,11 @@ export const TodoCard = () => {
     const handleAdd = () => {
         setTask((prevTask) => [...prevTask,{
             taskNo: prevTask.length,
+            taskDesc: description,
             taskTitle: title,
         }])
         setTitle('')
+        setDescription('')
     }
     const handleDelete = () => {
         setTitle('')

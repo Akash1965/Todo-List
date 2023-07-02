@@ -2,6 +2,7 @@ import './App.css'
 import React, { useState } from 'react'
 import { List } from './Components/List'
 import { TodoContainer } from './Components/TodoContainer'
+import { Route, Routes } from 'react-router-dom'
 
 export const TaskContext = React.createContext()
 export const TaskStateContext = React.createContext()
@@ -15,7 +16,8 @@ function App() {
   const [description, setDescription] = useState('')
   const [task, setTask] = useState([{
     taskNo: 0,
-    title: '',
+    taskDesc: '',
+    taskTitle: '',
   }])
   return (
     <div className='flex flex-col'>
@@ -25,7 +27,10 @@ function App() {
           <DescriptionStateContext.Provider value={setDescription}>
             <ListContext.Provider value={task}>
               <ListStateContext.Provider value={setTask}>
-                <TodoContainer/>
+                <Routes>
+                  <Route path='/' element={<TodoContainer />}/>
+                  <Route path='/:id' element={<TodoContainer />} />
+                </Routes>
                 <List/>
               </ListStateContext.Provider>
             </ListContext.Provider>
